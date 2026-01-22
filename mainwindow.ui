@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>920</width>
+    <height>680</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Туристическое агентство. Клиенты, продажи.</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tabClients">
+       <attribute name="title">
+        <string>Клиенты</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="clientsLayout">
+        <item>
+         <widget class="QTableWidget" name="clientsTable">
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+          </property>
+          <property name="columnCount">
+           <number>6</number>
+          </property>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="clientsButtons">
+          <item>
+           <widget class="QLineEdit" name="searchEdit">
+            <property name="placeholderText">
+             <string>Поиск по ФИО, телефону, email...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="searchButton">
+            <property name="text">
+             <string>Найти</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="addClientButton">
+            <property name="text">
+             <string>Добавить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="editClientButton">
+            <property name="text">
+             <string>Изменить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="deleteClientButton">
+            <property name="text">
+             <string>Удалить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="clientFormGroup">
+          <property name="visible">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Форма (добавление / редактирование)</string>
+          </property>
+          <layout class="QVBoxLayout" name="clientFormLayout">
+           <item>
+            <widget class="QLabel" name="clientErrorLabel">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTabWidget" name="clientFormTabs">
+             <widget class="QWidget" name="clientMainTab">
+              <attribute name="title">
+               <string>Основное</string>
+              </attribute>
+              <layout class="QFormLayout" name="clientMainForm">
+               <item row="0" column="0">
+                <widget class="QLabel" name="labelLastName">
+                 <property name="text">
+                  <string>Фамилия *:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="clientLastName"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="labelFirstName">
+                 <property name="text">
+                  <string>Имя *:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="clientFirstName"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="labelMiddleName">
+                 <property name="text">
+                  <string>Отчество:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="clientMiddleName"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="labelPhone">
+                 <property name="text">
+                  <string>Телефон *:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="clientPhone"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="labelEmail">
+                 <property name="text">
+                  <string>Email *:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="clientEmail"/>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="labelDob">
+                 <property name="text">
+                  <string>Дата рождения:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QDateEdit" name="clientDateOfBirth">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="labelComments">
+                 <property name="text">
+                  <string>Комментарии:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QPlainTextEdit" name="clientComments"/>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="clientAddressTab">
+              <attribute name="title">
+               <string>Адреса</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="clientAddressLayout">
+               <item>
+                <widget class="QGroupBox" name="registrationAddressGroup">
+                 <property name="title">
+                  <string>Адрес регистрации</string>
+                 </property>
+                 <layout class="QFormLayout" name="registrationAddressForm">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="labelRegRegion">
+                    <property name="text">
+                     <string>Регион *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="regRegionEdit"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="labelRegCity">
+                    <property name="text">
+                     <string>Город *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="regCityEdit"/>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="labelRegStreet">
+                    <property name="text">
+                     <string>Улица *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="regStreetEdit"/>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="labelRegHouse">
+                    <property name="text">
+                     <string>Дом *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="regHouseEdit"/>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="labelRegBuilding">
+                    <property name="text">
+                     <string>Корпус:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QLineEdit" name="regBuildingEdit"/>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="labelRegApartment">
+                    <property name="text">
+                     <string>Квартира:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLineEdit" name="regApartmentEdit"/>
+                  </item>
+                  <item row="6" column="0">
+                   <widget class="QLabel" name="labelRegPostal">
+                    <property name="text">
+                     <string>Индекс *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="1">
+                   <widget class="QLineEdit" name="regPostalEdit"/>
+                  </item>
+                  <item row="7" column="0">
+                   <widget class="QLabel" name="labelRegAdditional">
+                    <property name="text">
+                     <string>Дополнительно:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="1">
+                   <widget class="QLineEdit" name="regAdditionalEdit"/>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="sameAddressCheck">
+                 <property name="text">
+                  <string>Фактический адрес совпадает с адресом регистрации</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="actualAddressGroup">
+                 <property name="title">
+                  <string>Фактический адрес</string>
+                 </property>
+                 <layout class="QFormLayout" name="actualAddressForm">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="labelActRegion">
+                    <property name="text">
+                     <string>Регион *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="actRegionEdit"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="labelActCity">
+                    <property name="text">
+                     <string>Город *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="actCityEdit"/>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="labelActStreet">
+                    <property name="text">
+                     <string>Улица *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="actStreetEdit"/>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="labelActHouse">
+                    <property name="text">
+                     <string>Дом *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="actHouseEdit"/>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="labelActBuilding">
+                    <property name="text">
+                     <string>Корпус:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QLineEdit" name="actBuildingEdit"/>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="labelActApartment">
+                    <property name="text">
+                     <string>Квартира:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLineEdit" name="actApartmentEdit"/>
+                  </item>
+                  <item row="6" column="0">
+                   <widget class="QLabel" name="labelActPostal">
+                    <property name="text">
+                     <string>Индекс *:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="1">
+                   <widget class="QLineEdit" name="actPostalEdit"/>
+                  </item>
+                  <item row="7" column="0">
+                   <widget class="QLabel" name="labelActAdditional">
+                    <property name="text">
+                     <string>Дополнительно:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="1">
+                   <widget class="QLineEdit" name="actAdditionalEdit"/>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="clientFormBtns">
+             <item>
+              <widget class="QPushButton" name="clientSaveButton">
+               <property name="text">
+                <string>Сохранить</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="clientCancelButton">
+               <property name="text">
+                <string>Отмена</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="salesHistoryGroup">
+          <property name="title">
+           <string>История продаж (выберите клиента)</string>
+          </property>
+          <layout class="QVBoxLayout" name="salesHistoryLayout">
+           <item>
+            <widget class="QListWidget" name="salesHistoryList"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabTours">
+       <attribute name="title">
+        <string>Туры</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="toursLayout">
+        <item>
+         <widget class="QTableWidget" name="toursTable">
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+          </property>
+          <property name="columnCount">
+           <number>9</number>
+          </property>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="toursButtons">
+          <item>
+           <widget class="QPushButton" name="addTourButton">
+            <property name="text">
+             <string>Добавить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="editTourButton">
+            <property name="text">
+             <string>Изменить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="deleteTourButton">
+            <property name="text">
+             <string>Удалить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="tourFormGroup">
+          <property name="visible">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Форма тура</string>
+          </property>
+          <layout class="QFormLayout" name="tourForm">
+           <item row="0" column="0">
+            <widget class="QLabel" name="labelTourName">
+             <property name="text">
+              <string>Название:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="tourName"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="labelCountry">
+             <property name="text">
+              <string>Страна:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="tourCountry"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="labelTourType">
+             <property name="text">
+              <string>Тип тура:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="tourType"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="labelStartDate">
+             <property name="text">
+              <string>Дата начала:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QDateEdit" name="tourStartDate">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="labelDuration">
+             <property name="text">
+              <string>Длительность (дней):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QSpinBox" name="tourDuration">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>365</number>
+             </property>
+             <property name="value">
+              <number>7</number>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="labelBasePrice">
+             <property name="text">
+              <string>Базовая цена (руб):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QDoubleSpinBox" name="tourBasePrice">
+             <property name="decimals">
+              <number>2</number>
+             </property>
+             <property name="minimum">
+              <double>0.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>10000000.000000000000000</double>
+             </property>
+             <property name="value">
+              <double>99.989999999999995</double>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QCheckBox" name="tourDomestic">
+             <property name="text">
+              <string>Внутренняя поездка (Россия)</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QCheckBox" name="tourVisaRequired">
+             <property name="text">
+              <string>Требуется виза</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="labelTourTravelModes">
+             <property name="text">
+              <string>Способы проезда:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <layout class="QHBoxLayout" name="tourTravelModesRow">
+             <item>
+              <widget class="QCheckBox" name="tourTravelPlane">
+               <property name="text">
+                <string>Самолёт</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="tourTravelTrain">
+               <property name="text">
+                <string>Поезд</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="9" column="1">
+            <layout class="QHBoxLayout" name="tourFormBtns">
+             <item>
+              <widget class="QPushButton" name="tourSaveButton">
+               <property name="text">
+                <string>Сохранить</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="tourCancelButton">
+               <property name="text">
+                <string>Отмена</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabRequests">
+       <attribute name="title">
+        <string>Заявки (продажи)</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="requestsLayout">
+        <item>
+         <widget class="QTableWidget" name="requestsTable">
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+          </property>
+          <property name="columnCount">
+           <number>5</number>
+          </property>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+          <column/>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="requestsTopButtons">
+          <item>
+           <widget class="QLabel" name="labelReqSelectClient">
+            <property name="text">
+             <string>Клиент:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="newRequestClientCombo"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="newRequestClientSearchButton">
+            <property name="text">
+             <string>Найти...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelReqSelectTour">
+            <property name="text">
+             <string>Тур:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="newRequestTourCombo"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="newRequestTourSearchButton">
+            <property name="text">
+             <string>Найти...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="createRequestButton">
+            <property name="text">
+             <string>Создать заявку</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="deleteRequestButton">
+            <property name="text">
+             <string>Удалить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer3">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QToolButton" name="requestDetailsToggle">
+          <property name="text">
+           <string>Показать детали заявки</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="requestDetailsGroup">
+          <property name="visible">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Детали заявки</string>
+          </property>
+          <layout class="QVBoxLayout" name="requestDetailsLayout">
+           <item>
+            <widget class="QLabel" name="requestErrorLabel">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTabWidget" name="requestTabs">
+             <widget class="QWidget" name="requestMainTab">
+              <attribute name="title">
+               <string>Заявка</string>
+              </attribute>
+              <layout class="QFormLayout" name="requestHead">
+               <item row="0" column="0">
+                <widget class="QLabel" name="labelReqClient">
+                 <property name="text">
+                  <string>Клиент:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="requestClientName"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="labelReqTour">
+                 <property name="text">
+                  <string>Тур:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="requestTourName"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="labelReqStatus">
+                 <property name="text">
+                  <string>Статус:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="requestStatusCombo"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="labelReqCost">
+                 <property name="text">
+                  <string>Стоимость (авто):</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="requestCostLabel"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="labelReqCostBreakdown">
+                 <property name="text">
+                  <string>Расчёт:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="requestCostBreakdownLabel">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="labelTravelMode">
+                 <property name="text">
+                  <string>Способ поездки:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QComboBox" name="travelModeCombo"/>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="labelTravelClass">
+                 <property name="text">
+                  <string>Тип перевозки:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QComboBox" name="travelClassCombo"/>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="requestTouristsTab">
+              <attribute name="title">
+               <string>Туристы</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="touristsLayout">
+               <item>
+                <layout class="QHBoxLayout" name="touristsRow">
+                 <item>
+                  <widget class="QLineEdit" name="touristLastNameEdit">
+                   <property name="placeholderText">
+                    <string>Фамилия *</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="touristFirstNameEdit">
+                   <property name="placeholderText">
+                    <string>Имя *</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="touristMiddleNameEdit">
+                   <property name="placeholderText">
+                    <string>Отчество</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="touristBenefitCheck">
+                   <property name="text">
+                    <string>Льгота</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="touristsRow2">
+                 <item>
+                  <widget class="QLabel" name="labelChildDob">
+                   <property name="text">
+                    <string>Дата рожд. (реб.):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QDateEdit" name="childDobEdit">
+                   <property name="calendarPopup">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="addAdultButton">
+                   <property name="text">
+                    <string>+ Взрослый</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="addChildButton">
+                   <property name="text">
+                    <string>+ Ребёнок</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="removeTouristButton">
+                   <property name="text">
+                    <string>Удалить</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QListWidget" name="touristsList"/>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="requestAnimalsTab">
+              <attribute name="title">
+               <string>Животные</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="animalsLayout">
+               <item>
+                <layout class="QHBoxLayout" name="animalsRow">
+                 <item>
+                  <widget class="QLineEdit" name="animalTypeEdit">
+                   <property name="placeholderText">
+                    <string>Тип (кот, собака...)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QDoubleSpinBox" name="animalWeightSpin">
+                   <property name="suffix">
+                    <string> кг</string>
+                   </property>
+                   <property name="decimals">
+                    <number>1</number>
+                   </property>
+                   <property name="minimum">
+                    <double>0.100000000000000</double>
+                   </property>
+                   <property name="value">
+                    <double>5.000000000000000</double>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="animalTransportCombo"/>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="addAnimalButton">
+                   <property name="text">
+                    <string>+ Животное</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="removeAnimalButton">
+                   <property name="text">
+                    <string>Удалить</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QListWidget" name="animalsList"/>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="requestDocumentsTab">
+              <attribute name="title">
+               <string>Документы</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="documentsLayout">
+               <item>
+                <widget class="QPushButton" name="openDocumentsButton">
+                 <property name="text">
+                  <string>Открыть окно документов...</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelRequiredDocs">
+                 <property name="text">
+                  <string>Требуемые документы:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QListWidget" name="requiredDocsList"/>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMissingDocs">
+                 <property name="text">
+                  <string>Не хватает:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QTextEdit" name="missingDocsText">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="requestReviewTab">
+              <attribute name="title">
+               <string>Итог</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="reviewLayout">
+               <item>
+                <widget class="QLabel" name="labelWarnings">
+                 <property name="text">
+                  <string>Предупреждения:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QTextEdit" name="warningsText">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="requestSaveButtons">
+                 <item>
+                  <widget class="QPushButton" name="saveRequestButton">
+                   <property name="text">
+                    <string>Сохранить заявку</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="saveRequestCloseButton">
+                   <property name="text">
+                    <string>Сохранить и закрыть</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabFile">
+       <attribute name="title">
+        <string>Файл</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="fileLayout">
+        <item>
+         <layout class="QHBoxLayout" name="fileButtons">
+          <item>
+           <widget class="QPushButton" name="saveButton">
+            <property name="text">
+             <string>Сохранить в файл</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="loadButton">
+            <property name="text">
+             <string>Загрузить из файла</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="dataFilePath">
+            <property name="text">
+             <string>agency_data.json</string>
+            </property>
+            <property name="placeholderText">
+             <string>agency_data.json</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="fileStatusLabel">
+          <property name="text">
+           <string>Файл по умолчанию: agency_data.json</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>920</width>
+     <height>17</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
